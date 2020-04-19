@@ -2,7 +2,38 @@ import java.util.*;
 
 public class Student {
 
-    public static void main(String[] args) {
+    private String firstName;
+    private String lastName;
+    private String mainLanguage;
+
+    public Student(String firstName, String lastName, String mainLanguage) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mainLanguage = mainLanguage;
+    }
+
+    @Override
+    public String toString(){
+        return firstName + " " + lastName + " " + mainLanguage;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if (!(obj instanceof Student)) {
+            return false;
+        }
+        Student theOther = (Student)obj; //mamy siebie i drugiego studenta z takimi samymi danymi
+        return  (theOther.mainLanguage.equals(mainLanguage) &&
+        theOther.lastName.equals(lastName) &&
+        theOther.firstName.equals(firstName));
+    }
+
+    @Override
+    public int hashCode() {
+        return lastName.hashCode(); //zwraca studentów o tym samym nazwisku
+    }
+
+    /*public static void main(String[] args) {
         //stworzenie mapy, gdzie klucz = Student (firstname, lastname, mainLanguage), a wartość = lista ocen studenta
         Map<String, String> data = new HashMap<String, String>();
 
@@ -18,10 +49,9 @@ public class Student {
         String value = data.get(Student);
         System.out.println(Student + " - " + value);*/
 
-        Set<Map.Entry<String, String>> entrySet = data.entrySet();
+        /*Set<Map.Entry<String, String>> entrySet = data.entrySet();
         for (Map.Entry<String, String> entry : entrySet) {
             System.out.println(entry.getKey() + " - " + entry.getValue());
-        }
-    }
+        }*/
 }
 
