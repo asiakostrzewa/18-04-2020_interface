@@ -27,7 +27,7 @@ public class Printer implements Runnable {
             } catch (InterruptedException e) {
                 System.err.println(" interrupted" + text + " " + counter);
             }
-            System.out.println(text);
+            //System.out.println(text);
         }
         //deadlock - zakleszczenie
         //starvation - zagłodzenie
